@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remonty i Wykończenia • Elegant / WIEL-BUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary:   #2c7da0;
+      --primary-dark: #1a4d6d;
+      --accent:    #e07a5f;
+      --accent-light: #f0a898;
+      --gray:      #6b7280;
+      --light:     #f9fafb;
+      --dark:      #1f2937;
+      --shadow:    0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────── HEADER NAWIGACJA ─────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, #1a4d6d 0%, #2c7da0 100%);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      margin-right: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-light);
+    }
+
+    .header-social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .social-link-header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+
+    .social-link-header:hover {
+      background: white;
+      color: var(--accent);
+      border-color: white;
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(224,122,95,0.4);
+    }
+
+    .nav-button {
+      padding: 10px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-button:hover {
+      background: #d65a3c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(224,122,95,0.4);
+    }
+
+    .phone-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 10px 16px;
+      background: white;
+      color: var(--primary-dark);
+      border: 2px solid white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2), 0 0 20px rgba(224,122,95,0.3);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s;
+    }
+
+    .phone-button:hover::before {
+      left: 100%;
+    }
+
+    .phone-button:hover {
+      background: linear-gradient(135deg, var(--accent) 0%, #d65a3c 100%);
+      color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(224,122,95,0.5), 0 0 30px rgba(224,122,95,0.4);
+      border-color: var(--accent);
+    }
+
+    .phone-icon {
+      font-size: 0.95rem;
+      animation: phonePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes phonePulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .phone-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ─────────────── HERO ─────────────── */
+    .hero {
+      margin-top: 70px;
+      min-height: calc(100vh - 70px);
+      background: linear-gradient(135deg, #1e3a8a 0%, #2c7da0 50%, #1a4d6d 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      opacity: 0.15;
+      mix-blend-mode: luminosity;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      animation: fadeInUp 1s ease;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-weight: 300;
+      opacity: 0.95;
+      margin-bottom: 2.5rem;
+      color: #e0e7ff;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 6px 20px rgba(224,122,95,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.04);
+      background: #d65a3c;
+      box-shadow: 0 12px 32px rgba(224,122,95,0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─────────────── SEKCJE ─────────────── */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      margin-bottom: 3.5rem;
+      color: var(--primary-dark);
+      position: relative;
+      font-weight: 700;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 5px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* ─────────────── DLACZEGO MY ─────────────── */
+    #why-us {
+      background: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border-top: 5px solid var(--accent);
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .why-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .why-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ─────────────── USŁUGI ─────────────── */
+    #services {
+      background: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-content {
+      padding: 2rem;
+    }
+
+    .service-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--accent);
+    }
+
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .service-item-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .service-item-content h3 {
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-item-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ─────────────── GALERIA REALIZACJI ─────────────── */
+    #realizations {
+      background: white;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(44,125,160,0.5);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    /* ─────────────── MODAL GALERIA ─────────────── */
+    .gallery-modal {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      z-index: 2000;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-modal.active {
+      transform: translateY(0);
+    }
+
+    .gallery-modal-header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, #1a4d6d 0%, #2c7da0 100%);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      z-index: 2001;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .gallery-modal-header h2 {
+      color: white;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .close-gallery {
+      background: white;
+      color: #1a4d6d;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .close-gallery:hover {
+      transform: rotate(90deg);
+      background: #e07a5f;
+    }
+
+    .gallery-modal-content {
+      padding: 3rem 2rem;
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    .gallery-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ─────────────── FORMULARZ KONTAKTOWY ─────────────── */
+    #contact {
+      background: var(--light);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 4rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.3rem;
+    }
+
+    .contact-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+    }
+
+    .contact-item p {
+      color: var(--gray);
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(44,125,160,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-submit:hover {
+      background: #d65a3c;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        order: -1;
+      }
+    }
+
+    /* ─────────────── HAMBURGER MENU ─────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      background: none;
+      border: none;
+      gap: 5px;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #1a4d6d 0%, #2c7da0 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      list-style: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .mobile-nav.active {
+      max-height: 400px;
+    }
+
+    .mobile-nav li {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mobile-nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(255,255,255,0.1);
+      padding-left: 2rem;
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 0.8rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+      display: none;
+      z-index: 1002;
+    }
+
+    .mobile-nav.active .mobile-nav-close {
+      display: none;
+    }
+
+    .mobile-nav-close:hover {
+      color: var(--accent-light);
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+    }
+
+    /* ─────────────── FOOTER ─────────────── */
+    footer {
+      background: var(--primary-dark);
+      color: #d1d5db;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    footer p {
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+
+    .social-link:hover {
+      background: linear-gradient(135deg, var(--accent) 0%, #d65a3c 100%);
+      color: white;
+      border-color: white;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(224,122,95,0.4);
+    }
+
+    /* ─────────────── PRIVACY DRAWER ─────────────── */
+    .privacy-drawer {
+      position: fixed;
+      right: -450px;
+      top: 0;
+      width: 450px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+      z-index: 2000;
+      transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .privacy-drawer.active {
+      right: 0;
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary-dark);
+      transition: transform 0.3s, color 0.3s;
+      z-index: 10;
+    }
+
+    .drawer-close:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .drawer-content {
+      overflow-y: auto;
+      padding: 3rem 2rem 2rem 2rem;
+      flex: 1;
+    }
+
+    .drawer-content h2 {
+      color: var(--primary-dark);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .drawer-content h3 {
+      color: var(--primary-dark);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .drawer-content p {
+      margin: 0.8rem 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .drawer-content ul {
+      margin: 1rem 0 1rem 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .privacy-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0);
+      z-index: 1999;
+      transition: background 0.3s;
+      pointer-events: none;
+    }
+
+    .privacy-overlay.active {
+      background: rgba(0,0,0,0.5);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-drawer {
+        width: 100%;
+        right: -100%;
+      }
+
+      .drawer-content {
+        padding: 3rem 1.5rem 2rem 1.5rem;
+      }
+    }
+
+    /* ─────────────── CONTACT FORM DRAWER ─────────────── */
+    .contact-drawer {
+      position: fixed;
+      right: -450px;
+      top: 0;
+      width: 450px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+      z-index: 2002;
+      transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .contact-drawer.active {
+      right: 0 !important;
+    }
+
+    .drawer-form-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary-dark);
+      transition: transform 0.3s, color 0.3s;
+      z-index: 10;
+    }
+
+    .drawer-form-close:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .drawer-form-content {
+      padding: 3rem 2rem 2rem 2rem;
+      flex: 1;
+    }
+
+    .drawer-form-content h2 {
+      color: var(--primary-dark);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .drawer-form-content h2::after {
+      display: none;
+    }
+
+    .drawer-form-content .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0);
+      z-index: 2001;
+      transition: background 0.3s;
+      pointer-events: none;
+    }
+
+    .contact-overlay.active {
+      background: rgba(0,0,0,0.5);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      .contact-drawer {
+        width: 100%;
+        right: -100%;
+      }
+
+      .drawer-form-content {
+        padding: 3rem 1.5rem 2rem 1.5rem;
+      }
+    }
+
+    /* ─────────────── COOKIE BANNER ─────────────── */
+    .cookie-banner {
+      position: fixed;
+      bottom: -400px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #1a4d6d 0%, #2c7da0 100%);
+      color: white;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 -5px 30px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-top: 3px solid var(--accent);
+    }
+
+    .cookie-banner.show {
+      bottom: 0;
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cookie-text h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .cookie-text p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .cookie-btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .cookie-btn-accept {
+      background: var(--accent);
+      color: white;
+    }
+
+    .cookie-btn-accept:hover {
+      background: #d65a3c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(224,122,95,0.4);
+    }
+
+    .cookie-btn-reject {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .cookie-btn-reject:hover {
+      background: rgba(255,255,255,0.3);
+      border-color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .cookie-buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .cookie-btn {
+        width: 100%;
+      }
+
+      .cookie-text p {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ─────────────── BEFORE/AFTER SLIDER ─────────────── */
+    #before-after {
+      background: var(--light);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .comparison-item {
+      text-align: center;
+    }
+
+    .comparison-slider {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      cursor: col-resize;
+      aspect-ratio: 4/3;
+      user-select: none;
+      touch-action: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    .comparison-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .comparison-img-before {
+      clip-path: polygon(0 0, var(--position, 50%) 0, var(--position, 50%) 100%, 0 100%);
+    }
+
+    .comparison-handle {
+      position: absolute;
+      top: 0;
+      left: var(--position, 50%);
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .comparison-handle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comparison-handle::after {
+      content: '❮  ❯';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+      z-index: 2;
+      letter-spacing: 3px;
+    }
+
+    .comparison-label {
+      position: absolute;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      z-index: 5;
+    }
+
+    .comparison-label-before {
+      top: 15px;
+      left: 15px;
+    }
+
+    .comparison-label-after {
+      top: 15px;
+      right: 15px;
+    }
+
+    .comparison-title {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .comparison-description {
+      margin-top: 0.8rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .comparison-label {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+
+      .comparison-handle::after {
+        font-size: 1rem;
+      }
+    }
+
+    /* ─────────────── ANIMACJE ─────────────── */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        margin-top: 60px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAWIGACJA -->
+<nav>
+  <a href="#" class="logo">WIEL-BUD</a>
+  <ul class="nav-menu">
+    <li><a href="#why-us">Dlaczego my</a></li>
+    <li><a href="#services">Usługi</a></li>
+    <li><a href="#realizations">Realizacje</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <ul class="mobile-nav" id="mobileNav">
+    <li style="padding: 1.5rem 1.5rem; border: none; display: flex; align-items: center; min-height: 60px;">
+      <!-- Miejsce na logo -->
+    </li>
+    <li><a href="#why-us" onclick="closeMobileMenu()">Dlaczego my</a></li>
+    <li><a href="#services" onclick="closeMobileMenu()">Usługi</a></li>
+    <li><a href="#realizations" onclick="closeMobileMenu()">Realizacje</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Kontakt</a></li>
+    <li style="border-top: 2px solid rgba(255,255,255,0.2); padding: 1rem 1.5rem; display: flex; gap: 1.5rem; justify-content: center;">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link-header" title="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link-header" title="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="2" y="2" width="20" height="20" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="18" cy="6" r="1" fill="currentColor"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+  <button class="nav-button" onclick="scrollToContact()">Skontakuj się z nami</button>
+  <a href="tel:+48512345678" class="phone-button" title="Zadzwoń: +48 512 345 678">
+    <span class="phone-icon">📞</span>
+  </a>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Twoje wymarzone wnętrze zaczyna się tutaj</h1>
+    <p class="hero-subtitle">Kompleksowe remonty • Wykończenia pod klucz • Profesjonalna aranżacja</p>
+    
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="scrollToContact()">Bezpłatna wycena</button>
+      <a href="#realizations" class="btn btn-secondary">Nasze realizacje</a>
+    </div>
+  </div>
+</section>
+
+<!-- DLACZEGO MY -->
+<section id="why-us">
+  <div class="container">
+    <h2>Dlaczego my?</h2>
+    
+    <div class="why-grid">
+      <div class="why-card fade-in delay-1">
+        <div class="why-icon">🏆</div>
+        <h3>Doświadczenie</h3>
+        <p>Ponad 14 lat na rynku remontu - znamy każdy detal tego zawodu.</p>
+      </div>
+      
+      <div class="why-card fade-in delay-2">
+        <div class="why-icon">⚡</div>
+        <h3>Terminowość</h3>
+        <p>Realizujemy projekty w zadeklarowanych terminach bez zbędnych opóźnień.</p>
+      </div>
+      
+      <div class="why-card fade-in delay-3">
+        <div class="why-icon">💰</div>
+        <h3>Przejrzyste ceny</h3>
+        <p>Wycena bez ukrytych kosztów – dokładnie wiesz, za co płacisz.</p>
+      </div>
+
+      <div class="why-card fade-in delay-1">
+        <div class="why-icon">👥</div>
+        <h3>Profesjonalny zespół</h3>
+        <p>Wykwalifikowani pracownicy z ceryfikatami i doświadczeniem.</p>
+      </div>
+
+      <div class="why-card fade-in delay-2">
+        <div class="why-icon">🎨</div>
+        <h3>Nowoczesny design</h3>
+        <p>Projektowanie wnętrz zgodnie z najnowszymi trendami.</p>
+      </div>
+
+      <div class="why-card fade-in delay-3">
+        <div class="why-icon">✅</div>
+        <h3>Gwarancja jakości</h3>
+        <p>Wszystkie prace objęte gwarancją – spokój na lata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USŁUGI -->
+<section id="services">
+  <div class="container">
+    <h2>Nasze specjalizacje</h2>
+    
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-item-icon">💧</div>
+        <div class="service-item-content">
+          <h3>Hydraulika</h3>
+          <p>Instalacje wodno-kanalizacyjne, montaż urządzeń sanitarnych i systemy hydrauliczne.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🚰</div>
+        <div class="service-item-content">
+          <h3>Instalacje wodno-kanalizacyjne</h3>
+          <p>Profesjonalne projekty i montaż systemów wodociągowych i kanalizacyjnych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🔥</div>
+        <div class="service-item-content">
+          <h3>Instalacje C.O. i Gaz</h3>
+          <p>Instalacje centralnego ogrzewania i systemów gazowych zgodnie z normami.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">⚡</div>
+        <div class="service-item-content">
+          <h3>Instalacje elektryczne</h3>
+          <p>Wykonanie instalacji elektrycznych, oświetlenia i systemów elektroenergetycznych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🧱</div>
+        <div class="service-item-content">
+          <h3>Glazurnictwo</h3>
+          <p>Profesjonalne układanie glazury i płytek w łazienkach, kuchniach i na tarasach.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🚿</div>
+        <div class="service-item-content">
+          <h3>Łazienki</h3>
+          <p>Kompleksowe remonty łazienek z hydroizolacją i montażem urządzeń sanitarnych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🛁</div>
+        <div class="service-item-content">
+          <h3>Montaż urządzeń sanitarnych</h3>
+          <p>Instalacja wanien, umywalek, sedesów, pryszniców i akcesoriów łazienkowych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">📦</div>
+        <div class="service-item-content">
+          <h3>Zabudowy karton-gips</h3>
+          <p>Zabudowy ścian działowych, przesunięcia i inne konstrukcje z płyt gipsowych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🛏️</div>
+        <div class="service-item-content">
+          <h3>Sufity podwieszane</h3>
+          <p>Montaż sufitów podwieszanych, systemów akustycznych i oświetleniowych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🏠</div>
+        <div class="service-item-content">
+          <h3>Adaptacja poddaszy</h3>
+          <p>Przebudowa i adaptacja przestrzeni na poddaszu, izolacja i wykończenie.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🎨</div>
+        <div class="service-item-content">
+          <h3>Malowanie</h3>
+          <p>Profesjonalne malowanie wewnętrzne i zewnętrzne, dekoracyjne i strukturalne.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🪡</div>
+        <div class="service-item-content">
+          <h3>Gładzie</h3>
+          <p>Wykonanie gładzi, tynków zwykłych i dekoracyjnych, przygotowanie powierzchni.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🪨</div>
+        <div class="service-item-content">
+          <h3>Kamienie dekoracyjne</h3>
+          <p>Montaż kamieni naturalnych, cegły dekoracyjnej i okładzin ściennych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🧩</div>
+        <div class="service-item-content">
+          <h3>Płytki</h3>
+          <p>Profesjonalne układanie ceramiki, gresów, mozaiki i materiałów kamiennych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🛠️</div>
+        <div class="service-item-content">
+          <h3>Montaż paneli podłogowych</h3>
+          <p>Instalacja parkietu, paneli laminowanych, winylowych i systemów podłogowych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">🚪</div>
+        <div class="service-item-content">
+          <h3>Montaż drzwi</h3>
+          <p>Montaż drzwi drewnianych, metalowych, szklanych oraz systemów przesuwnych.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-item-icon">✨</div>
+        <div class="service-item-content">
+          <h3>Wiele innych prac</h3>
+          <p>Montaż okien, oświetlenia, obróbki, armatur oraz wiele innych prac wykończeniowych.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REALIZACJE -->
+<section id="realizations">
+  <div class="container">
+    <h2>Nasze realizacje</h2>
+    
+    <div class="gallery">
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600563438938-a9a272e5a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    </div>
+
+    <div class="gallery-btn">
+      <button class="btn btn-primary" onclick="openGallery()">Zobacz więcej realizacji</button>
+    </div>
+  </div>
+</section>
+
+<!-- PORÓWNANIE PRZED/PO -->
+<section id="before-after">
+  <div class="container">
+    <h2>Transformacja Wnętrz</h2>
+    
+    <div class="comparison-grid">
+      <div class="comparison-item">
+        <div class="comparison-slider" data-comparison="1">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Po" class="comparison-img" />
+          <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
+          <div class="comparison-label comparison-label-before">Przed</div>
+          <div class="comparison-label comparison-label-after">Po</div>
+          <div class="comparison-handle" style="--position: 50%;"></div>
+        </div>
+        <div class="comparison-title">Remont Kuchni</div>
+        <div class="comparison-description">Pełna transformacja przestrzeni kuchennej z nowymi urządzeniami i glazurą</div>
+      </div>
+
+      <div class="comparison-item">
+        <div class="comparison-slider" data-comparison="2">
+          <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Po" class="comparison-img" />
+          <img src="https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
+          <div class="comparison-label comparison-label-before">Przed</div>
+          <div class="comparison-label comparison-label-after">Po</div>
+          <div class="comparison-handle" style="--position: 50%;"></div>
+        </div>
+        <div class="comparison-title">Remont Łazienki</div>
+        <div class="comparison-description">Nowoczesna łazienka z nową instalacją i wyposażeniem sanitarnym</div>
+      </div>
+
+      <div class="comparison-item">
+        <div class="comparison-slider" data-comparison="3">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Po" class="comparison-img" />
+          <img src="https://images.unsplash.com/photo-1600563438938-a9a272e5a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
+          <div class="comparison-label comparison-label-before">Przed</div>
+          <div class="comparison-label comparison-label-after">Po</div>
+          <div class="comparison-handle" style="--position: 50%;"></div>
+        </div>
+        <div class="comparison-title">Remont Salonu</div>
+        <div class="comparison-description">Całkowite wykończenie i aranżacja przestrzeni salon-jadalnia</div>
+      </div>
+
+      <div class="comparison-item">
+        <div class="comparison-slider" data-comparison="4">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Po" class="comparison-img" />
+          <img src="https://images.unsplash.com/photo-1570129477492-45201003a0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
+          <div class="comparison-label comparison-label-before">Przed</div>
+          <div class="comparison-label comparison-label-after">Po</div>
+          <div class="comparison-handle" style="--position: 50%;"></div>
+        </div>
+        <div class="comparison-title">Remont Sypialni</div>
+        <div class="comparison-description">Przytulna i funkcjonalna sypialnia z nowymi sufitami i oświetleniem</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL GALERIA -->
+<div class="gallery-modal-overlay" id="galleryOverlay" onclick="closeGallery()"></div>
+<div class="gallery-modal" id="galleryModal">
+  <div class="gallery-modal-header">
+    <h2>Wszystkie nasze realizacje</h2>
+    <button class="close-gallery" onclick="closeGallery()">✕</button>
+  </div>
+  <div class="gallery-modal-content">
+    <div class="gallery-extended">
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600563438938-a9a272e5a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45201003a0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1565183938294-7563f3ce68f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1579536485299-5b90692f4d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1589939705882-0e8ea822ff4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1559027615-cd2628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1584622280917-7494a3967ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1618788285203-f47e2f70126f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1497215728620-7f80a653e5b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+    </div>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<section id="contact">
+  <div class="container">
+    <h2>Skontaktuj się z nami</h2>
+    
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h3>Telefon</h3>
+            <p><strong>+48 512 345 678</strong></p>
+            <p style="font-size: 0.9rem;">Dostępni: pon–pt 8:00–18:00</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h3>Email</h3>
+            <p><strong>biuro@twojaremontownia.pl</strong></p>
+            <p style="font-size: 0.9rem;">Odpowiadamy w ciągu 24h</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h3>Zasięg działalności</h3>
+            <p>Warszawa • Trójmiasto • Kraków</p>
+            <p>Wrocław • Poznań • Okolice</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🏢</div>
+          <div>
+            <h3>Dane firmy</h3>
+            <p>NIP: 123-456-78-910</p>
+            <p>REGON: 123456789</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(108, 92, 231, 0.2); display: flex; justify-content: center; gap: 1rem;">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="2" width="20" height="20" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="18" cy="6" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLITYKA PRYWATNOŚCI - DRAWER -->
+<div id="privacyDrawer" class="privacy-drawer">
+  <button id="closePrivacy" class="drawer-close">✕</button>
+  <div class="drawer-content">
+    <h2>Polityka Prywatności</h2>
+    
+    <div style="line-height: 1.8; color: #555;">
+      <h3>1. Informacje Ogólne</h3>
+      <p>WIEL-BUD / Elegant („My" lub „Nas") zobowiązuje się do ochrony Twojej prywatności. Niniejsza Polityka Prywatności wyjaśnia, w jaki sposób zbieramy, używamy, przechowujemy i chronimy Twoje dane osobowe.</p>
+
+      <h3>2. Zbieranie Danych</h3>
+      <p>Zbieramy dane osobowe, gdy wypełniasz formularz kontaktowy, w tym: imię i nazwisko, adres e-mail, numer telefonu, oraz treść wiadomości. Dane te są zbierane w celu odpowiedzi na Twoje zapytania i świadczenia usług.</p>
+
+      <h3>3. Wykorzystanie Danych</h3>
+      <p>Twoje dane będą używane wyłącznie do:</p>
+      <ul style="margin-left: 2rem;">
+        <li>Odpowiadania na Twoje zapytania</li>
+        <li>Dostarczania wycen i ofert usług</li>
+        <li>Komunikacji dotyczącej prowadzonych przez nas projektów</li>
+        <li>Wysyłania ważnych informacji dotyczących naszych usług</li>
+      </ul>
+
+      <h3>4. Cookies</h3>
+      <p>Nasza strona internetowa używa plików cookies w celu:</p>
+      <ul style="margin-left: 2rem;">
+        <li>Zapamiętywania Twojej zgody na politykę prywatności</li>
+        <li>Analizy ruchu na stronie (Analytics)</li>
+        <li>Poprawy doświadczenia użytkownika</li>
+        <li>Utrzymywania sesji użytkownika</li>
+      </ul>
+
+      <h3>5. Prawa Użytkownika</h3>
+      <p>Masz prawo do dostępu, poprawy, usunięcia lub ograniczenia przetwarzania Twoich danych osobowych. Aby skorzystać z tych praw, skontaktuj się z nami na adres e-mail: contact@wiel-bud.pl</p>
+
+      <h3>6. Bezpieczeństwo Danych</h3>
+      <p>Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony Twoich danych osobowych przed nieuprawnionym dostępem, zmianą, ujawnieniem lub zniszczeniem.</p>
+
+      <h3>7. Zmiany Polityki</h3>
+      <p>Zastrzegamy sobie prawo do modyfikacji niniejszej Polityki Prywatności. Zmiany będą opublikowane na tej stronie.</p>
+
+      <h3>8. Kontakt</h3>
+      <p>Jeśli masz pytania dotyczące niniejszej Polityki Prywatności, prosimy o kontakt:</p>
+      <p><strong>WIEL-BUD / Elegant</strong><br>
+      Email: contact@wiel-bud.pl<br>
+      Telefon: +48 512 345 678</p>
+    </div>
+  </div>
+</div>
+
+<div id="privacyOverlay" class="privacy-overlay"></div>
+
+<!-- CONTACT FORM DRAWER -->
+<div id="contactDrawer" class="contact-drawer" style="right: -450px;">
+  <button id="closeContactForm" class="drawer-form-close">✕</button>
+  <div class="drawer-form-content">
+    <h2>Formularz kontaktowy</h2>
+    <p style="color: var(--gray); margin-bottom: 2rem;">Wypełnij formularz, a my skontaktujemy się z Tobą wkrótce</p>
+    
+    <form id="contactFormDrawer" onsubmit="handleFormSubmit(event)">
+      <div class="form-group">
+        <label for="name-drawer">Imię i nazwisko</label>
+        <input type="text" id="name-drawer" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email-drawer">Email</label>
+        <input type="email" id="email-drawer" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone-drawer">Telefon</label>
+        <input type="tel" id="phone-drawer" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service-drawer">Rodzaj usługi</label>
+        <select id="service-drawer" name="service" required>
+          <option value="">-- Wybierz usługę --</option>
+          <option value="hydraulika">Hydraulika</option>
+          <option value="wodno-kanalizacyjne">Instalacje wodno-kanalizacyjne</option>
+          <option value="co-gaz">Instalacje C.O. i Gaz</option>
+          <option value="elektryka">Instalacje elektryczne</option>
+          <option value="glazurnictwo">Glazurnictwo</option>
+          <option value="lazienki">Łazienki</option>
+          <option value="sanitaria">Montaż urządzeń sanitarnych</option>
+          <option value="karton-gips">Zabudowy karton-gips</option>
+          <option value="sufity">Sufity podwieszane</option>
+          <option value="poddasze">Adaptacja poddaszy</option>
+          <option value="malowanie">Malowanie</option>
+          <option value="gładzie">Gładzie</option>
+          <option value="kamienie">Kamienie dekoracyjne</option>
+          <option value="płytki">Płytki</option>
+          <option value="panele">Montaż paneli podłogowych</option>
+          <option value="drzwi">Montaż drzwi</option>
+          <option value="inne">Inne prace</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message-drawer">Wiadomość</label>
+        <textarea id="message-drawer" name="message" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Wyślij wiadomość</button>
+    </form>
+  </div>
+</div>
+
+<div id="contactOverlay" class="contact-overlay"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>© 2026 WIEL-BUD / Elegant</strong> – Kompleksowe remonty i wykończenia</p>
+    <p>Realizujemy projekty z pasją i precyzją</p>
+    <p style="font-size: 0.9rem; margin-top: 1rem;"><a href="javascript:void(0)" onclick="openPrivacyPolicy()" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; cursor: pointer;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Polityka Prywatności</a></p>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookieBanner" class="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h3>🍪 Polityka Cookies</h3>
+      <p>Używamy cookies, aby poprawić doświadczenie użytkownika i analizować ruch na naszej stronie. Kontynuując przeglądanie, wyrażasz zgodę na używanie cookies zgodnie z naszą <a href="javascript:void(0)" onclick="openPrivacyPolicy()" style="color: var(--accent); text-decoration: underline; cursor: pointer;">Polityką Prywatności</a>.</p>
+    </div>
+    <div class="cookie-buttons">
+      <button id="acceptCookie" class="cookie-btn cookie-btn-accept">Akceptuj</button>
+      <button id="rejectCookie" class="cookie-btn cookie-btn-reject">Odrzuć</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Animacje elementów przy scrollu
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.why-card, .service-card, .gallery-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Before/After Slider
+  function initComparisonSliders() {
+    const sliders = document.querySelectorAll('.comparison-slider');
+    
+    sliders.forEach(slider => {
+      const beforeImg = slider.querySelector('.comparison-img-before');
+      const handle = slider.querySelector('.comparison-handle');
+      let isActive = false;
+
+      function updatePosition(e) {
+        if (!isActive) return;
+
+        const rect = slider.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+
+        // Dla touch events
+        if (e.touches) {
+          x = e.touches[0].clientX - rect.left;
+        }
+
+        // Ogranicz wartość do zakresu 0-100%
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+
+        const percentage = (x / rect.width) * 100;
+
+        beforeImg.style.setProperty('--position', percentage + '%');
+        handle.style.setProperty('--position', percentage + '%');
+      }
+
+      // Mouse events
+      slider.addEventListener('mousedown', () => { isActive = true; });
+      document.addEventListener('mouseup', () => { isActive = false; });
+      document.addEventListener('mousemove', updatePosition);
+
+      // Touch events
+      slider.addEventListener('touchstart', () => { isActive = true; });
+      document.addEventListener('touchend', () => { isActive = false; });
+      document.addEventListener('touchmove', updatePosition);
+
+      // Click anywhere on slider to move
+      slider.addEventListener('click', function(e) {
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+
+        beforeImg.style.setProperty('--position', percentage + '%');
+        handle.style.setProperty('--position', percentage + '%');
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initComparisonSliders);
+
+  // Obsługa formularza
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      message: document.getElementById('message').value
+    };
+
+    console.log('Formularz wysłany:', formData);
+    alert('Dziękujemy! Twoja wiadomość została wysłana. Skontaktujemy się z Tobą wkrótce.');
+
+    event.target.reset();
+  }
+
+  // Scroll do sekcji kontaktu
+  function scrollToContact() {
+    openContactForm();
+  }
+
+  // Funkcje modala galerii
+  function openGallery() {
+    const modal = document.getElementById('galleryModal');
+    const overlay = document.getElementById('galleryOverlay');
+    if (modal && overlay) {
+      modal.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeGallery() {
+    const modal = document.getElementById('galleryModal');
+    const overlay = document.getElementById('galleryOverlay');
+    if (modal && overlay) {
+      modal.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  // Obsługa cookies
+  function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookie');
+    const rejectBtn = document.getElementById('rejectCookie');
+    
+    // Sprawdź, czy użytkownik już wyraził zgodę
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+      // Pokaż banner po 1 sekundzie
+      setTimeout(() => {
+        cookieBanner.classList.add('show');
+      }, 1000);
+    }
+    
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      localStorage.setItem('cookieConsentDate', new Date().toISOString());
+      cookieBanner.classList.remove('show');
+      // Tutaj możesz aktywować analytics i inne tracking skrypty
+      console.log('Cookies zaakceptowane');
+    });
+    
+    rejectBtn.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'rejected');
+      localStorage.setItem('cookieConsentDate', new Date().toISOString());
+      cookieBanner.classList.remove('show');
+      console.log('Cookies odrzucone');
+    });
+  }
+
+  // Inicjalizuj banner cookies przy załadowaniu strony
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
+
+  // Obsługa Privacy Drawer
+  function openPrivacyPolicy() {
+    const drawer = document.getElementById('privacyDrawer');
+    const overlay = document.getElementById('privacyOverlay');
+    if (drawer && overlay) {
+      drawer.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closePrivacyPolicy() {
+    const drawer = document.getElementById('privacyDrawer');
+    const overlay = document.getElementById('privacyOverlay');
+    if (drawer && overlay) {
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  // Obsługa Contact Form Drawer
+  function openContactForm() {
+    console.log('openContactForm called');
+    const drawer = document.getElementById('contactDrawer');
+    const overlay = document.getElementById('contactOverlay');
+    console.log('drawer:', drawer);
+    console.log('overlay:', overlay);
+    if (drawer && overlay) {
+      drawer.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      console.log('Contact form opened');
+    } else {
+      console.log('Elements not found');
+    }
+  }
+
+  function closeContactForm() {
+    console.log('closeContactForm called');
+    const drawer = document.getElementById('contactDrawer');
+    const overlay = document.getElementById('contactOverlay');
+    if (drawer && overlay) {
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      console.log('Contact form closed');
+    }
+  }
+
+  // Event listeners dla drawer
+  document.addEventListener('DOMContentLoaded', function() {
+    const closeBtn = document.getElementById('closePrivacy');
+    const overlay = document.getElementById('privacyOverlay');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closePrivacyPolicy);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closePrivacyPolicy);
+    }
+
+    // Zamknij drawer na ESC
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closePrivacyPolicy();
+        closeContactForm();
+      }
+    });
+
+    // Contact form drawer listeners
+    const closeFormBtn = document.getElementById('closeContactForm');
+    const contactOverlay = document.getElementById('contactOverlay');
+
+    if (closeFormBtn) {
+      closeFormBtn.addEventListener('click', closeContactForm);
+    }
+
+    if (contactOverlay) {
+      contactOverlay.addEventListener('click', closeContactForm);
+    }
+  });
+
+  // Hamburger Menu
+  function toggleMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (hamburger && mobileNav) {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    }
+  }
+
+  function closeMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (hamburger && mobileNav) {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
