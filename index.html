@@ -10,14 +10,14 @@
 
   <style>
     :root {
-      --primary:   #2c7da0;
-      --primary-dark: #1a4d6d;
-      --accent:    #e07a5f;
-      --accent-light: #f0a898;
-      --gray:      #6b7280;
-      --light:     #f9fafb;
-      --dark:      #1f2937;
-      --shadow:    0 10px 30px rgba(0,0,0,0.1);
+      --primary:   #d4af37;
+      --primary-dark: #1a1a1a;
+      --accent:    #ffd700;
+      --accent-light: #ffe44d;
+      --gray:      #666666;
+      --light:     #f9f9f9;
+      --dark:      #000000;
+      --shadow:    0 10px 30px rgba(0,0,0,0.15);
     }
 
     * {
@@ -32,10 +32,28 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--light);
+      background: linear-gradient(-45deg, #f5f4f1, #ffd700, #f5f4f1, #ffd700);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       color: var(--dark);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: floatBg 20s ease-in-out infinite;
     }
 
     /* ─────────────── HEADER NAWIGACJA ─────────────── */
@@ -45,13 +63,13 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #1a4d6d 0%, #2c7da0 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
       padding: 0.6rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
     }
 
     .logo {
@@ -72,11 +90,31 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ffd700, #d4af37, #ffd700);
+      transition: width 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0);
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
 
     .nav-menu a:hover {
-      color: var(--accent-light);
+      color: #ffd700;
     }
 
     .header-social {
@@ -112,7 +150,7 @@
     .nav-button {
       padding: 8px 18px;
       background: var(--accent);
-      color: white;
+      color: #1a1a1a;
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -123,9 +161,10 @@
     }
 
     .nav-button:hover {
-      background: #d65a3c;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(224,122,95,0.4);
+      background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+      color: #1a1a1a;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
     }
 
     .phone-button {
@@ -166,11 +205,11 @@
     }
 
     .phone-button:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, #d65a3c 100%);
-      color: white;
+      background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+      color: #1a1a1a;
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 30px rgba(224,122,95,0.5), 0 0 30px rgba(224,122,95,0.4);
-      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6), 0 0 30px rgba(255, 215, 0, 0.5);
+      border-color: #ffd700;
     }
 
     .phone-icon {
@@ -187,6 +226,70 @@
       }
     }
 
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatBg {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(30px, -30px);
+      }
+      50% {
+        transform: translate(-20px, 20px);
+      }
+      75% {
+        transform: translate(20px, -20px);
+      }
+    }
+
+    @keyframes floatContent {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes goldenGlow {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+      }
+    }
+
+    @keyframes subtleShift {
+      0%, 100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+      25% {
+        opacity: 0.8;
+        transform: translate(-20px, -20px);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(20px, 20px);
+      }
+      75% {
+        opacity: 0.8;
+        transform: translate(-10px, 10px);
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-menu {
         display: none;
@@ -200,9 +303,10 @@
 
     /* ─────────────── HERO ─────────────── */
     .hero {
-      margin-top: 70px;
+      margin-top: 0;
+      padding-top: 100px;
       min-height: calc(100vh - 70px);
-      background: linear-gradient(135deg, #1e3a8a 0%, #2c7da0 50%, #1a4d6d 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -226,15 +330,24 @@
       position: relative;
       z-index: 2;
       max-width: 1000px;
-      animation: fadeInUp 1s ease;
+      animation: fadeInUp 1s ease, floatContent 6s ease-in-out infinite;
     }
 
     h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 700;
       margin-bottom: 1.5rem;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
       line-height: 1.2;
+      position: relative;
+      background: linear-gradient(90deg, #ffd700 0%, #ffd700 50%, transparent 100%);
+      background-size: 200% 100%;
+      background-position: 200% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: constructionPaint 4s ease-in-out 0.5s forwards, textGlow 4s ease-in-out 0.5s forwards;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      letter-spacing: 0.05em;
     }
 
     .hero-subtitle {
@@ -243,6 +356,8 @@
       opacity: 0.95;
       margin-bottom: 2.5rem;
       color: #e0e7ff;
+      animation: fadeInSubtitle 2s ease-in 3.5s forwards;
+      opacity: 0;
     }
 
     .hero-buttons {
@@ -267,14 +382,15 @@
 
     .btn-primary {
       background: var(--accent);
-      color: white;
-      box-shadow: 0 6px 20px rgba(224,122,95,0.35);
+      color: #1a1a1a;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.04);
-      background: #d65a3c;
-      box-shadow: 0 12px 32px rgba(224,122,95,0.5);
+      background: #d4af37;
+      color: #1a1a1a;
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
     }
 
     .btn-secondary {
@@ -286,6 +402,49 @@
     .btn-secondary:hover {
       background: white;
       color: var(--primary-dark);
+    }
+
+    @keyframes constructionPaint {
+      0% {
+        background-position: 200% 0;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        background-position: -100% 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes textGlow {
+      0%, 100% {
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      }
+      50% {
+        filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 60px rgba(212, 175, 55, 0.6));
+      }
+    }
+
+    @keyframes typeWriter {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeInSubtitle {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 0.95;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInUp {
@@ -332,7 +491,29 @@
 
     /* ─────────────── DLACZEGO MY ─────────────── */
     #why-us {
-      background: white;
+      background: linear-gradient(135deg, #f8f6f2 0%, #f3f0eb 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #why-us::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%),
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
+      animation: subtleShift 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    #why-us > * {
+      position: relative;
+      z-index: 1;
     }
 
     .why-grid {
@@ -345,7 +526,7 @@
     .why-card {
       text-align: center;
       padding: 2.5rem 1.5rem;
-      background: white;
+      background: #1a1a1a;
       border-radius: 16px;
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
@@ -359,18 +540,39 @@
 
     .why-card h3 {
       font-size: 1.5rem;
-      color: var(--primary);
+      color: #ffd700;
       margin-bottom: 1rem;
     }
 
-    .why-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+    .why-card p {
+      color: #e0e0e0;
     }
 
     /* ─────────────── USŁUGI ─────────────── */
     #services {
-      background: var(--light);
+      background: linear-gradient(135deg, #f3f0eb 0%, #f8f6f2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%),
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
+      animation: subtleShift 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    #services > * {
+      position: relative;
+      z-index: 1;
     }
 
     .services-grid {
@@ -381,7 +583,7 @@
     }
 
     .service-card {
-      background: white;
+      background: #1a1a1a;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -405,13 +607,13 @@
     }
 
     .service-card h3 {
-      color: var(--primary-dark);
+      color: #ffd700;
       margin-bottom: 1rem;
       font-size: 1.4rem;
     }
 
     .service-card p {
-      color: var(--gray);
+      color: #e0e0e0;
       line-height: 1.8;
       font-size: 0.95rem;
     }
@@ -427,7 +629,7 @@
       display: flex;
       gap: 1.5rem;
       padding: 2rem;
-      background: white;
+      background: #1a1a1a;
       border-radius: 12px;
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
@@ -446,13 +648,13 @@
     }
 
     .service-item-content h3 {
-      color: var(--primary-dark);
+      color: #ffd700;
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
 
     .service-item-content p {
-      color: var(--gray);
+      color: #e0e0e0;
       font-size: 0.95rem;
       line-height: 1.6;
     }
@@ -1351,6 +1553,7 @@
     <li><a href="#why-us">Dlaczego my</a></li>
     <li><a href="#services">Usługi</a></li>
     <li><a href="#realizations">Realizacje</a></li>
+    <li><a href="#before-after">Przed i po</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
   <ul class="mobile-nav" id="mobileNav">
@@ -1595,12 +1798,24 @@
     <h2>Nasze realizacje</h2>
     
     <div class="gallery">
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1600563438938-a9a272e5a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gallery-item" style="background-image:url('remont.jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (10).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (2).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (3).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (4).jpg')"></div>     
+      <div class="gallery-item" style="background-image:url('remont1 (5).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (6).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (7).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (8).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (9).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (11).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (12).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (13).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (14).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (15).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (16).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (17).jpg')"></div>
+      <div class="gallery-item" style="background-image:url('remont1 (18).jpg')"></div>
     </div>
 
     <div class="gallery-btn">
@@ -1617,8 +1832,8 @@
     <div class="comparison-grid">
       <div class="comparison-item">
         <div class="comparison-slider" data-comparison="1">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Po" class="comparison-img" />
-          <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
+          <img src="remont.jpg" alt="Po" class="comparison-img" />
+          <img src="remont1 (1).jpg" alt="Przed" class="comparison-img comparison-img-before" style="--position: 50%;" />
           <div class="comparison-label comparison-label-before">Przed</div>
           <div class="comparison-label comparison-label-after">Po</div>
           <div class="comparison-handle" style="--position: 50%;"></div>
@@ -2149,6 +2364,28 @@
       mobileNav.classList.remove('active');
     }
   }
+
+  // Aktywny link w menu na podstawie sekcji
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
 </script>
 
 </body>
